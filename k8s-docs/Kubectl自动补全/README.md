@@ -2,7 +2,7 @@
 
 [返回kubernetes中文文档集](../README.md)
 
-# Kubectl自动补全
+# kubectl自动补全
 
 执行下面命令设置`kubect`和`k`(kubect的alias)实现自动补全，
 

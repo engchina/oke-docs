@@ -2,7 +2,7 @@
 
 # kubernetes中文文档集
 
-- [Kubectl自动补全](./Kubectl自动补全/README.md)
+- [kubectl自动补全](./kubectl自动补全/README.md)
 
 
 
