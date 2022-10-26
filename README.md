@@ -15,6 +15,8 @@
 
 - [在OKE上安装NGINXIngressController](./在OKE上安装NGINXIngressController/README.md)
 
+- [在OKE上安装Rancher](./在OKE上安装Rancher/README.md)
+
 
 
 镜像库：
