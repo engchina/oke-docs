@@ -16,6 +16,8 @@
 
 - [在OKE上创建基于FileStorage(NFS)的StorageClass](./在OKE上创建基于FileStorage(NFS)的StorageClass/README.md)
 
+- [在OKE上安装NGINXIngressController](./在OKE上安装NGINXIngressController/README.md)
+
 
 
 [kubernetes中文文档集](./k8s-docs/README.md)
