@@ -52,6 +52,7 @@
    ```
    helm install rancher rancher-stable/rancher \
      --namespace cattle-system \
+     --set rancherImageTag=v2.6.9 \
      --set hostname=rancher.server.learnoke.com \
      --set bootstrapPassword=admin \
      --set ingress.ingressClassName=nginx \
