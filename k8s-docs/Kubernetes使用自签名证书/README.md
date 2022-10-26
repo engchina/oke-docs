@@ -2,7 +2,7 @@
 
 [返回kubernetes中文文档集](../README.md)
 
-# 创建自签名证书
+# Kubernetes使用自签名证书
 
 1. 创建自签名证书，示例中使用的域名是`learnk8s.com`，请根据实际情况修改，
 
