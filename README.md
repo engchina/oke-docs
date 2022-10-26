@@ -14,6 +14,8 @@
 
 - [在OKE上部署PrometheusOperator和kube-prometheus](./在OKE上部署PrometheusOperator和kube-prometheus/README.md)
 
+- [在OKE上创建基于FileStorage(NFS)的StorageClass](./在OKE上创建基于FileStorage(NFS)的StorageClass/README.md)
+
 
 
 [kubernetes中文文档集](./k8s-docs/README.md)
