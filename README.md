@@ -17,6 +17,8 @@
 
 - [在OKE上安装Rancher](./在OKE上安装Rancher/README.md)
 
+- [Rancher和OKE及OCI的集成](./Rancher和OKE及OCI的集成/README.md)
+
 
 
 镜像库：
