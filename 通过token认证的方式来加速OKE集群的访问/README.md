@@ -1,4 +1,4 @@
-[返回首页](../README.md)
+[返回OKE中文文档集](../README.md)
 
 # 通过token认证的方式来加速OKE集群的访问
 
@@ -150,4 +150,4 @@ time kubectl get nodes
 
 完结！
 
-[返回首页](../README.md)
+[返回OKE中文文档集](../README.md)
