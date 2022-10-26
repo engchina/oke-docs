@@ -12,6 +12,8 @@
 
 - [在OKE上最小化安装KubeSphere](./在OKE上最小化安装KubeSphere/README.md)
 
+- [在OKE上部署PrometheusOperator和kube-prometheus](./在OKE上部署PrometheusOperator和kube-prometheus/README.md)
+
 
 
 [kubernetes中文文档集](./k8s-docs/README.md)

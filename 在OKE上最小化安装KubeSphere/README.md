@@ -29,6 +29,23 @@
 
 5. 登录控制台后，您可以在**系统组件**中检查不同组件的状态。如果要使用相关服务，可能需要等待某些组件启动并运行。
 
+6. (Optional)卸载KubeSphere，您可以使用 [kubesphere-delete.sh](https://github.com/kubesphere/ks-installer/blob/release-3.1/scripts/kubesphere-delete.sh) 将KubeSphere从您现有的OKE集群中卸载。复制[GitHub 源文件](https://raw.githubusercontent.com/kubesphere/ks-installer/release-3.1/scripts/kubesphere-delete.sh)并在本地机器上执行此脚本。
+
+   ```
+   wget https://raw.githubusercontent.com/kubesphere/ks-installer/release-3.1/scripts/kubesphere-delete.sh
+   bash kubesphere-delete.sh
+   ```
+
+   
+
+
+
+参考文档：
+
+- [在 Oracle OKE 上部署 KubeSphere](https://kubesphere.io/zh/docs/v3.3/installing-on-kubernetes/hosted-kubernetes/install-kubesphere-on-oke/)
+
+- [从 Kubernetes 上卸载 KubeSphere](https://kubesphere.io/zh/docs/v3.3/installing-on-kubernetes/uninstall-kubesphere-from-k8s/)
+
 
 
 [返回OKE中文文档集](../README.md)
