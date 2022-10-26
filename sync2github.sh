@@ -1,1 +1,0 @@
-git push --mirror git@github.com:atjapan2015/oke-docs.git
