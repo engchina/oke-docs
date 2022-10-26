@@ -17,10 +17,6 @@
 
 
 
-[kubernetes中文文档集](./k8s-docs/README.md)
-
-
-
 镜像库：
 
 1. 镜像库:[https://jihulab.com/oke/docs](https://jihulab.com/oke/docs/-/blob/master/README.md)
