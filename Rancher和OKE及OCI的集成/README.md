@@ -77,11 +77,11 @@ Rancher可以和OKE及OCI进行集成，通过Rancher创建OKE集群和基于OCI
 
    ![image-20221026230656439](images/image-20221026230656439.png)
 
+   Note：有提示"Failed while: Wait for Condition: InitialRolesPopulated: True"错误信息，待调查和解决。![image-20221027100349526](images/image-20221027100349526.png)
+
    (Optional)在OCI的Kubernetes Clusters (OKE)页面，可以查看到有一个OKE集群正在创建中，在Rancher的管理页面需要经过一段时间后才能看见这个OKE集群的信息，
 
-   ![image-20221026230933216](images/image-20221026230933216.png)
-
-
+   ![image-20221027100552882](images/image-20221027100552882.png)
 
 ## 4. 创建RKE集群
 
@@ -105,15 +105,27 @@ Rancher可以和OKE及OCI进行集成，通过Rancher创建OKE集群和基于OCI
 
    ![image-20221026232052745](images/image-20221026232052745.png)
 
+   在Rancher管理页面，访问集群管理=>集群，点击"创建"，选择"Oracle OCI"，
+
+   ![image-20221027100746636](images/image-20221027100746636.png)
+
+   输入各个项目的信息，点击"创建"，
+
+   ![image-20221027100927433](images/image-20221027100927433.png)
+
+   Note：有提示"Failed while: Wait for Condition: InitialRolesPopulated: True"错误信息，待调查和解决。
+
+   ![image-20221027100349526](images/image-20221027100349526.png)
+
+   在Rancher管理页面，可以查看到有一个RKE集群正在创建中，
+
+   ![image-20221027101140302](images/image-20221027101140302.png)
+
 
 
 ToDo：
 
-https://rancher.server.learnoke.com
-
-https://144.24.67.105/
-
-
+https://rancher.oracle.k8scloud.site/
 
 
 

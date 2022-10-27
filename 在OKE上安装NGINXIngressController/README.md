@@ -1,4 +1,4 @@
-[返回OKE中文文档集](../../README.md)
+[返回OKE中文文档集](../README.md)
 
 # 在OKE上安装NGINXIngressController
 
@@ -40,5 +40,5 @@
 
 
 
-[返回OKE中文文档集](../../README.md)
+[返回OKE中文文档集](../README.md)
 
