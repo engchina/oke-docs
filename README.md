@@ -19,12 +19,16 @@
 
 - [Rancher和OKE及OCI的集成](./Rancher和OKE及OCI的集成/README.md)
 
+- [OKE启动盘磁盘容量自动扩容](./OKE启动盘磁盘容量自动扩容/README.md)
+
+- [安装k9s管理OKE](./安装k9s管理OKE/README.md)
+
 
 
 镜像库：
 
-1. 镜像库:[https://jihulab.com/oke/docs](https://jihulab.com/oke/docs/-/blob/master/README.md)
+1. [https://jihulab.com/oke/docs](https://jihulab.com/oke/docs/-/blob/master/README.md)
 
-2. 镜像库:[https://gitee.com/engchina/oke-docs](https://gitee.com/engchina/oke-docs/blob/master/README.md)
+2. [https://gitee.com/engchina/oke-docs](https://gitee.com/engchina/oke-docs/blob/master/README.md)
 
-3. 镜像库:[https://github.com/atjapan2015/oke-docs](https://github.com/atjapan2015/oke-docs/blob/master/README.md)
+3. [https://github.com/atjapan2015/oke-docs](https://github.com/atjapan2015/oke-docs/blob/master/README.md)

@@ -7,6 +7,7 @@
 - [通过kubectx和kubens快速切换context和namespace](./通过kubectx和kubens快速切换context和namespace/README.md)
 - [Kubernetes使用自签名证书](./Kubernetes使用自签名证书/README.md)
 - [安装Helm](./安装Helm/README.md)
+- [使用OCI的Arm实例和对象存储搭建Harbor](./使用OCI的Arm实例和对象存储搭建Harbor/README.md)
 
 
 
