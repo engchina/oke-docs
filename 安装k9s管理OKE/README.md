@@ -90,7 +90,7 @@
 
    3-8. 输入`:ns`或`:namespace`，跳转到命名空间视图。
 
-![img](images/25.png)
+   ![img](images/25.png)
 
 
    3-9. 输入`:cj`或`:cronjob`，跳转到cronjob视图。
@@ -104,7 +104,7 @@
 
    3-11. 输入`:xray RESOURCE [NAMESPACE]`，显示集群资源关联关系。RESOURCE可以是po, svc, dp, rs, sts, ds中的一个，NAMESPACE是可选的。以`:xray deploy oracle-project`为例。
 
-![](images/14.png)
+   ![](images/14.png)
 
 
 
