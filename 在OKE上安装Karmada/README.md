@@ -28,6 +28,8 @@ kubectl karmada version: version.Info{GitVersion:"v1.3.1", GitCommit:"1fe31b182a
 
 ## 2.安装Karmada到OKE集群
 
+必须使用root用户进行操作，
+
 ```
 kubectl karmada init
 ```
@@ -153,7 +155,63 @@ Step 2: Show members of karmada
 (In karmada)~# kubectl  --kubeconfig /etc/karmada/karmada-apiserver.config get clusters
 ```
 
-## 3.(Optional)卸载Karmada
+
+
+## 3.加入Cluster到该Karmada集群
+
+必须使用root用户进行操作，在另外一台机器上，
+
+```
+mkdir -p /etc/karmada
+scp root@<karmada_init_machine>:/etc/karmada/karmada-apiserver.config /etc/karmada/karmada-apiserver.config 
+MEMBER_CLUSTER_NAME=`cat ~/.kube/config  | grep current-context | sed 's/: /\n/g'| sed '1d'`
+kubectl karmada --kubeconfig /etc/karmada/karmada-apiserver.config  join ${MEMBER_CLUSTER_NAME} --cluster-kubeconfig=$HOME/.kube/config
+```
+
+查看Karmada集群的成员，
+
+```
+kubectl --kubeconfig /etc/karmada/karmada-apiserver.config get clusters
+```
+
+输出结果示例，
+
+```
+NAME                     VERSION   MODE   READY   AGE
+karmada-v8o-cluster2     v1.24.1   Push   True    54m
+oke-adminatoke-cluster   v1.24.1   Push   True    6s
+```
+
+设置alias，
+
+```
+echo "alias km='kubectl --kubeconfig /etc/karmada/karmada-apiserver.config'" >>~/.bashrc
+source ~/.bashrc
+```
+
+## 4.发布示例应用进行验证，
+
+```
+wget https://raw.githubusercontent.com/karmada-io/karmada/master/samples/nginx/deployment.yaml
+wget https://raw.githubusercontent.com/karmada-io/karmada/master/samples/nginx/propagationpolicy.yaml
+# wget https://raw.githubusercontent.com/karmada-io/karmada/master/samples/nginx/overridepolicy.yaml
+```
+
+修改`propagationpolicy.yaml`和`overridepolicy.yaml`文件中的clusterNames，
+
+```
+km apply -f deployment.yaml
+km apply -f propagationpolicy.yaml
+# km apply -f overridepolicy.yaml
+```
+
+验证，
+
+```
+km get deployment -owide
+```
+
+## 5.(Optional)卸载Karmada
 
 ```
 kubectl karmada deinit

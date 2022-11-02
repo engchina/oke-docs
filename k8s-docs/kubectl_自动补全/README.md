@@ -4,6 +4,22 @@
 
 # kubectl_自动补全
 
+安装kubectl，
+
+```
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+```
+
+或者安装指定版本，
+
+```
+curl -LO https://dl.k8s.io/release/v1.25.0/bin/linux/amd64/kubectl
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+```
+
+
+
 执行下面命令设置`kubect`和`k`(kubect的alias)实现自动补全，
 
 ```

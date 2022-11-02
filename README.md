@@ -14,6 +14,8 @@
 - [在OKE上安装Rancher](./在OKE上安装Rancher/README.md)
 - [制作中-在OKE上安装Karmada](./在OKE上安装Karmada/README.md)
 - [制作中-Rancher和OKE及OCI的集成](./Rancher和OKE及OCI的集成/README.md)
+- [制作中-在OKE上部署MiniIO](./在OKE上部署MiniIO/README.md)
+- [制作中-在OKE上安装Verrazzano和Karmada](./在OKE上安装Verrazzano和Karmada/README.md)
 
 
 
