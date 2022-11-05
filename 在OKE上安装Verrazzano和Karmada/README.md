@@ -71,7 +71,7 @@ vz status
 
 
 
-## 3. 安装managed-cluster1，
+## 3. 安装v8o-karmada-member1，
 
 ```
 # On the managed cluster
@@ -79,7 +79,7 @@ vz install -f - <<EOF
 apiVersion: install.verrazzano.io/v1beta1
 kind: Verrazzano
 metadata:
-  name: managed-cluster1
+  name: v8o-karmada-member1
 spec:
   profile: managed-cluster
   defaultVolumeSource:
@@ -96,11 +96,11 @@ EOF
 ```
 
 ```
-export KUBECONFIG_ADMIN=/home/oracle/.kube/config
-export KUBECONFIG_MANAGED1=/home/oracle/.kube/config
+export KUBECONFIG_ADMIN=/root/.kube/config
+export KUBECONFIG_MANAGED1=/root/.kube/config
 
-export KUBECONTEXT_ADMIN=karmada-v8o-cluster3
-export KUBECONTEXT_MANAGED1=karmada-v8o-cluster4
+export KUBECONTEXT_ADMIN=v8o-karmada-host
+export KUBECONTEXT_MANAGED1=v8o-karmada-member1
 
 # On the managed cluster
 export MGD_CA_CERT=$(kubectl --kubeconfig $KUBECONFIG_MANAGED1 --context $KUBECONTEXT_MANAGED1 \
@@ -109,26 +109,26 @@ export MGD_CA_CERT=$(kubectl --kubeconfig $KUBECONFIG_MANAGED1 --context $KUBECO
   -o jsonpath="{.data.ca\.crt}" | base64 --decode)
 
 kubectl --kubeconfig $KUBECONFIG_MANAGED1 --context $KUBECONTEXT_MANAGED1 \
-  create secret generic "ca-secret-managed-cluster1" \
+  create secret generic "ca-secret-v8o-karmada-member1" \
   -n verrazzano-mc \
   --from-literal=cacrt="$MGD_CA_CERT" \
   --dry-run=client \
-  -o yaml > managed-cluster1.yaml
+  -o yaml > v8o-karmada-member1.yaml
   
 # On the admin cluster
 kubectl --kubeconfig $KUBECONFIG_ADMIN --context $KUBECONTEXT_ADMIN \
-  apply -f managed-cluster1.yaml
+  apply -f v8o-karmada-member1.yaml
 
 # After the command succeeds, you may delete the managed1.yaml file
-rm managed-cluster1.yaml
+rm -rf v8o-karmada-member1.yaml
 ```
 
 ```
 # View the information for the admin cluster in your kubeconfig file
 kubectl --kubeconfig $KUBECONFIG_ADMIN --context $KUBECONTEXT_ADMIN config view --minify
 
-export ADMIN_K8S_SERVER_ADDRESS=<the server address from the config output>
-export ADMIN_K8S_SERVER_ADDRESS=https://129.154.48.102:6443
+# export ADMIN_K8S_SERVER_ADDRESS=<the server address from the config output>
+export ADMIN_K8S_SERVER_ADDRESS=https://10.0.0.69:6443
 
 # On the admin cluster
 kubectl --kubeconfig $KUBECONFIG_ADMIN --context $KUBECONTEXT_ADMIN \
@@ -150,23 +150,23 @@ apply -f <<EOF -
 apiVersion: clusters.verrazzano.io/v1alpha1
 kind: VerrazzanoManagedCluster
 metadata:
-  name: managed-cluster1
+  name: v8o-karmada-member1
   namespace: verrazzano-mc
 spec:
   description: "Verrazzano ManagedCluster 1"
-  caSecret: ca-secret-managed-cluster1
+  caSecret: ca-secret-v8o-karmada-member1
 EOF
 
 # On the admin cluster
 kubectl --kubeconfig $KUBECONFIG_ADMIN --context $KUBECONTEXT_ADMIN \
   wait --for=condition=Ready \
-  vmc managed-cluster1 -n verrazzano-mc
+  vmc v8o-karmada-member1 -n verrazzano-mc
 ```
 
 ```
 # On the admin cluster
 kubectl --kubeconfig $KUBECONFIG_ADMIN --context $KUBECONTEXT_ADMIN \
-  get secret verrazzano-cluster-managed-cluster1-manifest \
+  get secret verrazzano-cluster-v8o-karmada-member1-manifest \
   -n verrazzano-mc \
   -o jsonpath={.data.yaml} | base64 --decode > register.yaml
   
@@ -175,16 +175,16 @@ kubectl --kubeconfig $KUBECONFIG_MANAGED1 --context $KUBECONTEXT_MANAGED1 \
 apply -f register.yaml
 
 # After the command succeeds, you may delete the register.yaml file
-rm register.yaml
+rm -rf register.yaml
 ```
 
 ```
 # On the admin cluster
 kubectl --kubeconfig $KUBECONFIG_ADMIN --context $KUBECONTEXT_ADMIN \
-  get vmc managed-cluster1 -n verrazzano-mc -o yaml
+  get vmc v8o-karmada-member1 -n verrazzano-mc -o yaml
 ```
 
-## 4. 安装managed-cluster2，
+## 4. 安装v8o-karmada-member2，
 
 ```
 # On the managed cluster
@@ -192,7 +192,7 @@ vz install -f - <<EOF
 apiVersion: install.verrazzano.io/v1beta1
 kind: Verrazzano
 metadata:
-  name: managed-cluster2
+  name: v8o-karmada-member2
 spec:
   profile: managed-cluster
   defaultVolumeSource:
@@ -209,39 +209,39 @@ EOF
 ```
 
 ```
-export KUBECONFIG_ADMIN=/home/oracle/.kube/config
-export KUBECONFIG_MANAGED1=/home/oracle/.kube/config
+export KUBECONFIG_ADMIN=/root/.kube/config
+export KUBECONFIG_MANAGED2=/root/.kube/config
 
-export KUBECONTEXT_ADMIN=karmada-v8o-cluster3
-export KUBECONTEXT_MANAGED1=karmada-v8o-cluster5
+export KUBECONTEXT_ADMIN=v8o-karmada-host
+export KUBECONTEXT_MANAGED2=v8o-karmada-member2
 
 # On the managed cluster
-export MGD_CA_CERT=$(kubectl --kubeconfig $KUBECONFIG_MANAGED1 --context $KUBECONTEXT_MANAGED1 \
+export MGD_CA_CERT=$(kubectl --kubeconfig $KUBECONFIG_MANAGED1 --context $KUBECONTEXT_MANAGED2 \
   get secret verrazzano-tls \
   -n verrazzano-system \
   -o jsonpath="{.data.ca\.crt}" | base64 --decode)
 
-kubectl --kubeconfig $KUBECONFIG_MANAGED1 --context $KUBECONTEXT_MANAGED1 \
-  create secret generic "ca-secret-managed-cluster2" \
+kubectl --kubeconfig $KUBECONFIG_MANAGED1 --context $KUBECONTEXT_MANAGED2 \
+  create secret generic "ca-secret-v8o-karmada-member2" \
   -n verrazzano-mc \
   --from-literal=cacrt="$MGD_CA_CERT" \
   --dry-run=client \
-  -o yaml > managed-cluster2.yaml
+  -o yaml > v8o-karmada-member2.yaml
   
 # On the admin cluster
 kubectl --kubeconfig $KUBECONFIG_ADMIN --context $KUBECONTEXT_ADMIN \
-  apply -f managed-cluster2.yaml
+  apply -f v8o-karmada-member2.yaml
 
 # After the command succeeds, you may delete the managed1.yaml file
-rm managed-cluster2.yaml
+rm -rf v8o-karmada-member2.yaml
 ```
 
 ```
 # View the information for the admin cluster in your kubeconfig file
 kubectl --kubeconfig $KUBECONFIG_ADMIN --context $KUBECONTEXT_ADMIN config view --minify
 
-export ADMIN_K8S_SERVER_ADDRESS=<the server address from the config output>
-export ADMIN_K8S_SERVER_ADDRESS=https://129.154.48.102:6443
+# export ADMIN_K8S_SERVER_ADDRESS=<the server address from the config output>
+export ADMIN_K8S_SERVER_ADDRESS=https://10.0.0.69:6443
 
 # On the admin cluster
 kubectl --kubeconfig $KUBECONFIG_ADMIN --context $KUBECONTEXT_ADMIN \
@@ -263,38 +263,38 @@ apply -f <<EOF -
 apiVersion: clusters.verrazzano.io/v1alpha1
 kind: VerrazzanoManagedCluster
 metadata:
-  name: managed-cluster2
+  name: v8o-karmada-member2
   namespace: verrazzano-mc
 spec:
   description: "Verrazzano ManagedCluster 1"
-  caSecret: ca-secret-managed-cluster2
+  caSecret: ca-secret-v8o-karmada-member2
 EOF
 
 # On the admin cluster
 kubectl --kubeconfig $KUBECONFIG_ADMIN --context $KUBECONTEXT_ADMIN \
   wait --for=condition=Ready \
-  vmc managed-cluster2 -n verrazzano-mc
+  vmc v8o-karmada-member2 -n verrazzano-mc
 ```
 
 ```
 # On the admin cluster
 kubectl --kubeconfig $KUBECONFIG_ADMIN --context $KUBECONTEXT_ADMIN \
-  get secret verrazzano-cluster-managed-cluster2-manifest \
+  get secret verrazzano-cluster-v8o-karmada-member2-manifest \
   -n verrazzano-mc \
   -o jsonpath={.data.yaml} | base64 --decode > register.yaml
   
 # On the managed cluster
-kubectl --kubeconfig $KUBECONFIG_MANAGED1 --context $KUBECONTEXT_MANAGED1 \
+kubectl --kubeconfig $KUBECONFIG_MANAGED2 --context $KUBECONTEXT_MANAGED2 \
 apply -f register.yaml
 
 # After the command succeeds, you may delete the register.yaml file
-rm register.yaml
+rm -rf register.yaml
 ```
 
 ```
 # On the admin cluster
 kubectl --kubeconfig $KUBECONFIG_ADMIN --context $KUBECONTEXT_ADMIN \
-  get vmc managed-cluster2 -n verrazzano-mc -o yaml
+  get vmc v8o-karmada-member2 -n verrazzano-mc -o yaml
 ```
 
 ## 5. (Optional)启用jaeger、velero、rancherBackup
@@ -513,13 +513,11 @@ Step 2: Show members of karmada
 使用Push模式，
 
 ```
-MEMBER_CLUSTER_NAME=karmada-v8o-cluster4
+MEMBER_CLUSTER_NAME=v8o-karmada-member1
 kubectl karmada --kubeconfig /etc/karmada/karmada-apiserver.config  join ${MEMBER_CLUSTER_NAME} --cluster-kubeconfig=$HOME/.kube/config
 
-MEMBER_CLUSTER_NAME=karmada-v8o-cluster5
+MEMBER_CLUSTER_NAME=v8o-karmada-member2
 kubectl karmada --kubeconfig /etc/karmada/karmada-apiserver.config  join ${MEMBER_CLUSTER_NAME} --cluster-kubeconfig=$HOME/.kube/config
-
-
 ```
 
 查看Karmada集群的成员，
@@ -532,8 +530,8 @@ kubectl  --kubeconfig /etc/karmada/karmada-apiserver.config get clusters
 
 ```
 NAME                   VERSION   MODE   READY   AGE
-karmada-v8o-cluster4   v1.24.1   Push   True    106s
-karmada-v8o-cluster5   v1.24.1   Push   True    77s
+v8o-karmada-member1   v1.24.1   Push   True    106s
+v8o-karmada-member2   v1.24.1   Push   True    77s
 ```
 
 设置alias，
@@ -553,7 +551,7 @@ source ~/.bashrc
 mv /etc/karmada/pki/ca.crt /etc/karmada/pki/ca.crt.bak -f
 mv /etc/karmada/karmada-agent.conf /etc/karmada/karmada-agent.conf.bak -f
 
-kubectl karmada register 10.0.10.24:32443 --cluster-name=managed-cluster1 --token ig6gkp.5y38s6ht2bcnqleb --discovery-token-ca-cert-hash sha256:bcc2e9bd689b25777b82fd993a402475c77cbe2aade855c193518651c09666a1
+kubectl karmada register 10.0.10.24:32443 --cluster-name=v8o-karmada-member1 --token ig6gkp.5y38s6ht2bcnqleb --discovery-token-ca-cert-hash sha256:bcc2e9bd689b25777b82fd993a402475c77cbe2aade855c193518651c09666a1
 
 # (Optional)For rejoin, must delete below resources manually
 kubectl delete secret karmada-kubeconfig -n karmada-system
