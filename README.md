@@ -28,7 +28,7 @@
 
 2. [https://gitee.com/engchina/oke-docs](https://gitee.com/engchina/oke-docs/blob/master/README.md)
 
-3. [https://github.com/atjapan2015/oke-docs](https://github.com/atjapan2015/oke-docs/blob/master/README.md)
+3. [https://github.com/engchina/oke-docs](https://github.com/engchina/oke-docs/blob/master/README.md)
 
 
 
