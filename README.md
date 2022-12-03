@@ -24,7 +24,7 @@
 
 镜像库：
 
-1. [https://jihulab.com/oke/docs](https://jihulab.com/oke/docs/-/blob/master/README.md)
+1. [https://jihulab.com/engchina/oke-docs](https://jihulab.com/engchina/oke-docs/-/blob/master/README.md)
 
 2. [https://gitee.com/engchina/oke-docs](https://gitee.com/engchina/oke-docs/blob/master/README.md)
 
