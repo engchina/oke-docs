@@ -13,7 +13,7 @@ OCI CLI创建的config文件里面的user信息实际上是一条获取token的O
 ```
 mkdir oke; cd oke
 export CN=oke-admin
-export O=oke-admingroup
+export O=oke-admin-group
 ```
 
 ```
