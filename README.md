@@ -7,6 +7,7 @@
 - [通过token认证的方式来加速OKE集群的访问](./通过token认证的方式来加速OKE集群的访问/README.md)
 - [通过证书认证的方式来加速OKE集群的访问](./通过证书认证的方式来加速OKE集群的访问/README.md)
 - [OKE启动盘磁盘容量自动扩容](./OKE启动盘磁盘容量自动扩容/README.md)
+- [OKE节点内核优化](./OKE节点内核优化/README.md)
 - [OKE自动加污点(taints)](./OKE自动加污点(taints)/README.md)
 - [安装k9s管理OKE](./安装k9s管理OKE/README.md)
 - [服务类型为LoadBalancer时如何设置SSL端口为非443的值](./服务类型为LoadBalancer时如何设置SSL端口为非443的值/README.md)
