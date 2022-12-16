@@ -148,6 +148,11 @@ time kubectl get nodes
 ![在这里插入图片描述](images/71b039decc6b4de691402f607612e6c1.png)
 
 
+
+参照ドキュメント：
+
+- [Adding a Service Account Authentication Token to a Kubeconfig File (oracle.com)](https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengaddingserviceaccttoken.htm)
+
 完结！
 
 [返回OKE中文文档集](../README.md)

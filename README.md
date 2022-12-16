@@ -9,6 +9,7 @@
 - [OKE启动盘磁盘容量自动扩容](./OKE启动盘磁盘容量自动扩容/README.md)
 - [OKE节点内核优化](./OKE节点内核优化/README.md)
 - [OKE自动加污点(taints)](./OKE自动加污点(taints)/README.md)
+- [OKE自动设置MaxPods](./OKE自动设置MaxPods/README.md)
 - [安装k9s管理OKE](./安装k9s管理OKE/README.md)
 - [服务类型为LoadBalancer时如何设置SSL端口为非443的值](./服务类型为LoadBalancer时如何设置SSL端口为非443的值/README.md)
 - [在OKE上最小化安装KubeSphere](./在OKE上最小化安装KubeSphere/README.md)

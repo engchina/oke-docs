@@ -31,7 +31,7 @@ Rancher可以和OKE及OCI进行集成，通过Rancher创建OKE集群和基于OCI
 
 ## 2. 激活主机驱动的"Oracle Cloud Infrastructure"，
 
-   访问https://github.com/rancher-plugins/rancher-machine-driver-oci/releases[](https://github.com/rancher-plugins/kontainer-engine-driver-oke/releases/)，拷贝最新版的下载URL和校验信息，以v1.3.0版本为例，
+   访问[https://github.com/rancher-plugins/rancher-machine-driver-oci/releases](https://github.com/rancher-plugins/rancher-machine-driver-oci/releases)，拷贝最新版的下载URL和校验信息，以v1.3.0版本为例，
 
    - 下载URL: `https://github.com/rancher-plugins/rancher-machine-driver-oci/releases/download/v1.3.0/docker-machine-driver-oci-linux`
 
@@ -77,9 +77,19 @@ Rancher可以和OKE及OCI进行集成，通过Rancher创建OKE集群和基于OCI
 
    ![image-20221026230656439](images/image-20221026230656439.png)
 
-   Note：有提示"Failed while: Wait for Condition: InitialRolesPopulated: True"错误信息，待调查和解决。![image-20221027100349526](images/image-20221027100349526.png)
 
-   (Optional)在OCI的Kubernetes Clusters (OKE)页面，可以查看到有一个OKE集群正在创建中，在Rancher的管理页面需要经过一段时间后才能看见这个OKE集群的信息，
+
+(20221216追加)Rancher v2.7.0加上kontainer-engine-driver-oke v1.8.3创建成功。
+
+![image-20221216171632075](images/README/image-20221216171632075.png)
+
+
+
+![image-20221216171702760](images/README/image-20221216171702760.png)
+
+(20221216删除)Note：有提示"Failed while: Wait for Condition: InitialRolesPopulated: True"错误信息，待调查和解决。![image-20221027100349526](images/image-20221027100349526.png)
+
+(20221216删除)  (Optional)在OCI的Kubernetes Clusters (OKE)页面，可以查看到有一个OKE集群正在创建中，在Rancher的管理页面需要经过一段时间后才能看见这个OKE集群的信息，
 
    ![image-20221027100552882](images/image-20221027100552882.png)
 
@@ -113,11 +123,19 @@ Rancher可以和OKE及OCI进行集成，通过Rancher创建OKE集群和基于OCI
 
    ![image-20221027100927433](images/image-20221027100927433.png)
 
-   Note：有提示"Failed while: Wait for Condition: InitialRolesPopulated: True"错误信息，待调查和解决。
+(20221216追加)还是一直失败。
+
+![image-20221216174615065](images/README/image-20221216174615065.png)
+
+
+
+
+
+(20221216删除)Note：有提示"Failed while: Wait for Condition: InitialRolesPopulated: True"错误信息，待调查和解决。
 
    ![image-20221027100349526](images/image-20221027100349526.png)
 
-   在Rancher管理页面，可以查看到有一个RKE集群正在创建中，
+(20221216删除)在Rancher管理页面，可以查看到有一个RKE集群正在创建中，
 
    ![image-20221027101140302](images/image-20221027101140302.png)
 
