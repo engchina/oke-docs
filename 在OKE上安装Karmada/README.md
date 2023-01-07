@@ -217,7 +217,9 @@ km get deployment -owide
 kubectl karmada deinit
 ```
 
+## 6. 待测试
 
+![image-20230107205554219](images/image-20230107205554219.png)
 
 
 
